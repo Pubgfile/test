@@ -1,9 +1,15 @@
+-- Pain.lua: offline entry for the existing 2.lua feature implementation.
+-- Loaded locally by Logic_login_event.lua from the app-specific puffer_temp folder.
+-- Uses the native game environment and its current pcall/xpcall timeout hooks.
+-- No native Lua function restoration, hook replacement, or payload identity gate.
+-- Existing feature configuration and authentication logic follow unchanged.
+
 -- Supplied hack feature implementation follows in its own scope.
 local function startBaselineHacks()
 local GameplayData=require("GameLua.GameCore.Data.GameplayData")
 local EPawnState=import("EPawnState")
 local UKismetSystemLibrary=import("KismetSystemLibrary")
-_G.g_masterahsanyt=_G.g_masterahsanyt or "@MasterAhsanYT"
+_G.g_masterahsanyt=_G.g_masterahsanyt or "@bstoreid_yk"
 local g_masterahsanyt_credit=_G.g_masterahsanyt
 local g_masterahsanyt_StartSettingsMaintenance
 -- BYPASS START
@@ -441,7 +447,7 @@ _G.LexusState = _G.LexusState or {}
 _G.LexusState.CustomTextData = _G.LexusState.CustomTextData or {}
 _G.LexusState.CustomTextData.IpadViewFOV = _G.LexusState.CustomTextData.IpadViewFOV or 120
 
--- g_masterahsanyt_GetLocalPlayer made by @Masterpiece2025
+-- g_masterahsanyt_GetLocalPlayer made by @bstoreid_yk
 local function g_masterahsanyt_GetLocalPlayer()
     local ok, GDP = pcall(require, "GameLua.GameCore.Data.GameplayData")
     if not ok or not GDP then return nil end
@@ -450,7 +456,7 @@ local function g_masterahsanyt_GetLocalPlayer()
     return nil
 end
 
--- g_masterahsanyt_ApplyiPadView made by @Masterpiece2025
+-- g_masterahsanyt_ApplyiPadView made by @bstoreid_yk
 local function g_masterahsanyt_ApplyiPadView()
     local player = g_masterahsanyt_GetLocalPlayer()
     if not player then return end
@@ -478,7 +484,7 @@ _G.g_masterahsanyt_ESPOptions = _G.g_masterahsanyt_ESPOptions or {}
 for k,v in pairs(g_masterahsanyt_ESPOptionDefaults) do
     if _G.g_masterahsanyt_ESPOptions[k] == nil then _G.g_masterahsanyt_ESPOptions[k] = v end
 end
-local g_masterahsanyt_ESPSettingsFile = "MASTERPIECE_UMG_ESP_settings.lua"
+local g_masterahsanyt_ESPSettingsFile = "Pain4459_UMG_ESP_settings.lua"
 local function g_masterahsanyt_ESPSettingsPaths()
     local paths = {
         "//storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/SaveGames/"..g_masterahsanyt_ESPSettingsFile,
@@ -549,10 +555,10 @@ g_masterahsanyt_ESPLoadSettings()
 do
     local licenseScope
 local MasterLicenseConfig = {
-    url = 'https://key.authapi.xyz/server', game = 'BGMI',
+    url = 'https://saleem.keysgen.online/connect', game = 'BGMI',
     timeout = 10, clockSkew = 120, expiryPath = nil,
     manualExpiry = "2026-12-31 23:59:59", tamperTolerance = 5,
-    secret = 'Vm8Lk7Uj2JmsjCPVPVjrLa7zgfx3uz5E',
+    secret = 'DIAMONDYT',
 }
 
 local MasterLicenseCore = (function()
@@ -673,7 +679,7 @@ local MasterLicenseCore = (function()
 
     local CreateLocalExpiry = function(cfg)
         local E = {}
-        local expiredText = 'Mod expired. DM @Masterpiece2025 for renewal.'
+        local expiredText = 'Mod expired. DM @bstoreid_yk for renewal.'
         local tamperText  = "Don't be over smart"
         local blockedMessage, blockedPhase
         local function finite(n) return type(n) == 'number' and n == n and n ~= math.huge and n ~= -math.huge end
@@ -1203,7 +1209,7 @@ end)()
             panel(10,10,W-20,65,16,gold,4,24,1)
             panel(13,13,W-26,59,14,header,5,32,1)
             if welcome then
-                d.Title=text("Welcome to @Masterpiece2025 Lua mod",24,22,W-48,42,19,white,7,true,true)
+                d.Title=text("Welcome to @bstoreid_yk Lua mod",24,22,W-48,42,19,white,7,true,true)
                 local pw=math.min(340,W-72);local px=(W-pw)/2
                 panel(px,99,pw,51,12,gold,4,16)
                 panel(px+3,102,pw-6,45,10,{{179,29,52},{231,73,87},{178,26,47}},5,20)
@@ -1325,7 +1331,7 @@ end)()
         -- Identity is pinned independently of the feature-settings location.
         -- All IO is bounded and happens at startup/login, or a delayed save retry.
         local paths=g_masterahsanyt_ESPSettingsPaths()
-        for i,path in ipairs(paths) do paths[i]=path:gsub("MASTERPIECE_UMG_ESP_settings.lua$","MASTERAHSAN_LOGIN_V7_settings.lua") end
+        for i,path in ipairs(paths) do paths[i]=path:gsub("Pain4459_UMG_ESP_settings.lua$","MASTERAHSAN_LOGIN_V7_settings.lua") end
         local function loginPath(featurePath)
             if type(featurePath)~="string" then return nil end
             local prefix=featurePath:match("^(.*[/\\])[^/\\]+$")
@@ -1787,7 +1793,7 @@ do
             SetFunc=function(c,v) return featureState().SetESPAll(version,value(c,v)) end}
     end
     local function espSwitch(version,key,label)
-        return {Key=version==1 and ("LunarV1_"..key) or ("MasterpieceESP_"..key),
+        return {Key=version==1 and ("LunarV1_"..key) or ("SHAHARIAR44595ESP_"..key),
             UI=AliasMap.Switcher,Text=label,
             EventType=F.ESPSettingsEventType,EventID=F.ESPSettingsEventID,
             GetFunc=function()
@@ -1852,7 +1858,7 @@ do
             GetFunc=function() return featureState().Settings[key] end,
             SetFunc=function(c,v) return featureState().SetWallColor(key,value(c,v)) end})
     end
-    local page={Key="HackMenu",Text="Hack menu",UIKey="Setting_Page_Privacy",Category={
+    local page={Key="HackMenu",Text="MS MENU",UIKey="Setting_Page_Privacy",Category={
         {Key="Lunar_ESP_V1",Text="ESP V1",Stack=V1},
         {Key="Lunar_ESP_V2",Text="ESP V2",Stack=V2},
         {Key="Lunar_Other",Text="Other Features",Stack=Other}
@@ -1951,7 +1957,7 @@ do
     end
 end
 
--- ESP configuration made by @Masterpiece2025
+-- ESP configuration made by @bstoreid_yk
 _G.g_masterahsanyt_MasterShotESP = _G.g_masterahsanyt_MasterShotESP or {
 
     Enabled = true,
@@ -2001,7 +2007,7 @@ if not _G.g_masterahsanyt_MasterShotESP.PerformanceRevision then
 end
 _G.MasterShotESP = _G.g_masterahsanyt_MasterShotESP
 
--- ESP runtime state made by @Masterpiece2025
+-- ESP runtime state made by @bstoreid_yk
 local g_masterahsanyt_ShotESP = {
     Canvas = nil,
     RootUI = nil,
@@ -2069,7 +2075,7 @@ pcall(function() GameplayStaticsESP = import("GameplayStatics") end)
 local ESPGameplayData=nil
 pcall(function() ESPGameplayData=require("GameLua.GameCore.Data.GameplayData") end)
 
--- g_masterahsanyt_ESPV2 made by @Masterpiece2025
+-- g_masterahsanyt_ESPV2 made by @bstoreid_yk
 local function g_masterahsanyt_ESPV2(x, y)
     if V2 then return V2(x, y) end
     return {X = x, Y = y}
@@ -2083,13 +2089,13 @@ local function g_masterahsanyt_ESPV3(x, y, z)
     return {X = x, Y = y, Z = z}
 end
 
--- ESP color made by @Masterpiece2025
+-- ESP color made by @bstoreid_yk
 local function g_masterahsanyt_ESPColor(r, g, b, a)
     if LinearColor then return LinearColor(r, g, b, a or 1.0) end
     return {R=r, G=g, B=b, A=a or 1.0}
 end
 
--- ESP color theme made by @Masterpiece2025
+-- ESP color theme made by @bstoreid_yk
 local ESP_REAL = g_masterahsanyt_ESPColor(0.90, 0.14, 0.14, 0.98)
 local ESP_BOT  = g_masterahsanyt_ESPColor(0.18, 0.86, 0.36, 0.98)
 local ESP_WHITE = g_masterahsanyt_ESPColor(1.0, 1.0, 1.0, 1.0)
@@ -2102,7 +2108,7 @@ local ESP_COUNTER_BLUE = g_masterahsanyt_ESPColor(0.18, 0.86, 0.36, 1.0)
 local ESP_COUNTER_BLUE_DARK = g_masterahsanyt_ESPColor(0.012, 0.06, 0.025, 1.0)
 local ESP_COUNTER_CENTER = g_masterahsanyt_ESPColor(0.075, 0.080, 0.095, 1.0)
 
--- ESP gradient color made by @Masterpiece2025
+-- ESP gradient color made by @bstoreid_yk
 local function g_masterahsanyt_ESPScaleColor(color, factor, alphaMul)
     if not color then return g_masterahsanyt_ESPColor(1, 1, 1, 1) end
     local r = math.max(0.0, math.min(1.0, (tonumber(color.R) or 1.0) * (factor or 1.0)))
@@ -2133,7 +2139,7 @@ g_masterahsanyt_ESPTheme=function(isBot)
     return isBot and ESP_BOT_THEME or ESP_REAL_THEME
 end
 end
--- ESP object validation made by @Masterpiece2025
+-- ESP object validation made by @bstoreid_yk
 local function g_masterahsanyt_ESPValid(obj)
     if not obj then return false end
     if not slua or not slua.isValid then return false end
@@ -2158,7 +2164,7 @@ function ESPShared.VectorValues(v)
         and math.abs(x)<1e12 and math.abs(y)<1e12 and math.abs(z)<1e12 then return x,y,z end
 end
 
--- ESP timing made by @Masterpiece2025
+-- ESP timing made by @bstoreid_yk
 local function g_masterahsanyt_ESPNow()
     local t = nil
     pcall(function()
@@ -2174,14 +2180,14 @@ local function g_masterahsanyt_ESPNow()
     return ESPShared.SafeNumber(g_masterahsanyt_ShotESP.TimerClock,0.0,0.0,1e12)
 end
 
--- ESP world access made by @Masterpiece2025
+-- ESP world access made by @bstoreid_yk
 local function g_masterahsanyt_ESPWorld()
     local w = nil
     pcall(function() if slua and slua.getWorld then w = slua.getWorld() end end)
     return w
 end
 
--- ESP player controller made by @Masterpiece2025
+-- ESP player controller made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetController()
     local pc = nil
     pcall(function()
@@ -2196,7 +2202,7 @@ local function g_masterahsanyt_ESPGetController()
     return g_masterahsanyt_ESPValid(pc) and pc or nil
 end
 
--- ESP local player made by @Masterpiece2025
+-- ESP local player made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetLocalCharacter()
     local c = nil
     pcall(function()
@@ -2213,7 +2219,7 @@ local function g_masterahsanyt_ESPGetLocalCharacter()
     return g_masterahsanyt_ESPValid(c) and c or nil
 end
 
--- g_masterahsanyt_ESPGetPlayerState made by @Masterpiece2025
+-- g_masterahsanyt_ESPGetPlayerState made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetPlayerState(character)
     if not g_masterahsanyt_ESPValid(character) then return nil end
     local ps = nil
@@ -2229,7 +2235,7 @@ local function g_masterahsanyt_ESPGetPlayerState(character)
     return g_masterahsanyt_ESPValid(ps) and ps or nil
 end
 
--- g_masterahsanyt_ESPNormalizeName made by @Masterpiece2025
+-- g_masterahsanyt_ESPNormalizeName made by @bstoreid_yk
 local function g_masterahsanyt_ESPNormalizeName(value)
     if value == nil or value == false then return nil end
     local ok, text = pcall(tostring, value)
@@ -2240,12 +2246,12 @@ local function g_masterahsanyt_ESPNormalizeName(value)
     return text
 end
 
--- ESP player name made by @Masterpiece2025
+-- ESP player name made by @bstoreid_yk
 local function g_masterahsanyt_ESPResolvePlayerName(character)
     if not g_masterahsanyt_ESPValid(character) then return nil end
     local name = nil
 
--- take made by @Masterpiece2025
+-- take made by @bstoreid_yk
     local function take(value)
         if not name then name = g_masterahsanyt_ESPNormalizeName(value) end
     end
@@ -2271,7 +2277,7 @@ local function g_masterahsanyt_ESPResolvePlayerName(character)
     return name
 end
 
--- g_masterahsanyt_ESPGetPlayerKey made by @Masterpiece2025
+-- g_masterahsanyt_ESPGetPlayerKey made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetPlayerKey(character)
     local key = nil
     pcall(function() if character.GetPlayerKey then key = character:GetPlayerKey() end end)
@@ -2286,7 +2292,7 @@ local function g_masterahsanyt_ESPGetPlayerKey(character)
     return tostring(key) .. "_" .. tostring(character)
 end
 
--- ESP team detection made by @Masterpiece2025
+-- ESP team detection made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetTeamID(character)
     if not g_masterahsanyt_ESPValid(character) then return nil end
     local id = nil
@@ -2302,7 +2308,7 @@ local function g_masterahsanyt_ESPGetTeamID(character)
     return id
 end
 
--- ESP alive detection made by @Masterpiece2025
+-- ESP alive detection made by @bstoreid_yk
 local ESPFinishedLastBreath,ESPDeadPawnState
 pcall(function() ESPFinishedLastBreath=import("ECharacterHealthStatus").FinishedLastBreath end)
 pcall(function() ESPDeadPawnState=EPawnState and EPawnState.Dead end)
@@ -2649,7 +2655,7 @@ local function g_masterahsanyt_ESPIsBot(character, key, providedCache, providedN
     return result == true
 end
 
--- ESP actor position made by @Masterpiece2025
+-- ESP actor position made by @bstoreid_yk
 local function g_masterahsanyt_ESPActorLocation(character)
     local loc = nil
     if not g_masterahsanyt_ESPValid(character) then return nil end
@@ -2660,7 +2666,7 @@ local function g_masterahsanyt_ESPActorLocation(character)
     return loc
 end
 
--- ESP distance calculation made by @Masterpiece2025
+-- ESP distance calculation made by @bstoreid_yk
 local function g_masterahsanyt_ESPDistanceMeters(a,b)
     local ax,ay,az=ESPShared.VectorValues(a)
     local bx,by,bz=ESPShared.VectorValues(b)
@@ -2830,7 +2836,7 @@ local function g_masterahsanyt_ESPFilterEnemies(list, myLocation, maxRange, aliv
     return realCount,botCount
 end
 
--- ESP character vertical bounds made by @Masterpiece2025
+-- ESP character vertical bounds made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetCharacterVerticalBounds(character,cachedLocation)
     if not g_masterahsanyt_ESPValid(character) then return nil, nil end
 
@@ -2897,7 +2903,7 @@ local function g_masterahsanyt_ESPGetCharacterVerticalBounds(character,cachedLoc
     return center, halfHeight, cx, cy, cz
 end
 
--- ESP head and feet position made by @Masterpiece2025
+-- ESP head and feet position made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetCharacterBoxLocs(character,cachedLocation)
     local center, halfHeight, x, y, z = g_masterahsanyt_ESPGetCharacterVerticalBounds(character,cachedLocation)
     if not x or not halfHeight then return nil,nil end
@@ -2917,9 +2923,9 @@ local function g_masterahsanyt_ESPGetCharacterBoxLocs(character,cachedLocation)
     return headLoc, feetLoc, center
 end
 
--- ESP head position made by @Masterpiece2025
+-- ESP head position made by @bstoreid_yk
 
--- ESP feet position made by @Masterpiece2025
+-- ESP feet position made by @bstoreid_yk
 
 -- Bounded inactive HUD widgets. Records retain native widget/slot structure,
 -- never an enemy key, actor, name, delegate, bone mesh or controller. Collapsed
@@ -3059,7 +3065,7 @@ function ESPWidgetPool.Take(pool,kind,canvas)
 end
 end
 
--- ESP widget destroy made by @Masterpiece2025
+-- ESP widget destroy made by @bstoreid_yk
 local function g_masterahsanyt_ESPDestroyWidgetData(data)
     if not data then return end
     if ESPWidgetPool.Release(data) then return end
@@ -3071,7 +3077,7 @@ local function g_masterahsanyt_ESPDestroyWidgetData(data)
     end
 end
 
--- ESP widget cleanup made by @Masterpiece2025
+-- ESP widget cleanup made by @bstoreid_yk
 local function g_masterahsanyt_ESPResetWidgets()
     ESPWidgetPool.V2.Enabled=false
     for _, data in pairs(g_masterahsanyt_ShotESP.Lines) do g_masterahsanyt_ESPDestroyWidgetData(data) end
@@ -3121,7 +3127,7 @@ local function g_masterahsanyt_ESPResetWidgets()
     ESPWidgetPool.V2.Enabled=true
 end
 
--- ESP HUD canvas made by @Masterpiece2025
+-- ESP HUD canvas made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetCanvas()
     if g_masterahsanyt_ESPValid(g_masterahsanyt_ShotESP.Canvas) then return g_masterahsanyt_ShotESP.Canvas end
     local root = nil
@@ -3205,7 +3211,7 @@ local function g_masterahsanyt_ESPGetTemplateTextStyle()
     return g_masterahsanyt_ShotESP.TemplateFont
 end
 
--- ESP viewport size made by @Masterpiece2025
+-- ESP viewport size made by @bstoreid_yk
 local function g_masterahsanyt_ESPViewport(pc)
     local w,h
     local function take(x,y)
@@ -3223,7 +3229,7 @@ local function g_masterahsanyt_ESPViewport(pc)
     return w or 2400.0,h or 1080.0
 end
 
--- ESP HUD canvas made by @Masterpiece2025
+-- ESP HUD canvas made by @bstoreid_yk
 local function g_masterahsanyt_ESPGetCanvasLocalSize()
     local canvas = g_masterahsanyt_ESPGetCanvas()
     if not g_masterahsanyt_ESPValid(canvas) then return nil, nil end
@@ -3248,7 +3254,7 @@ local function g_masterahsanyt_ESPGetCanvasLocalSize()
     return cw, ch
 end
 
--- ESP canvas transform made by @Masterpiece2025
+-- ESP canvas transform made by @bstoreid_yk
 local function g_masterahsanyt_ESPUpdateCanvasTransform(pc)
     local canvas = g_masterahsanyt_ESPGetCanvas()
     if not g_masterahsanyt_ESPValid(canvas) then return false end
@@ -3305,7 +3311,7 @@ local function g_masterahsanyt_ESPUpdateCanvasTransform(pc)
     return true
 end
 
--- ESP world to HUD projection made by @Masterpiece2025
+-- ESP world to HUD projection made by @bstoreid_yk
 local function g_masterahsanyt_ESPProject(pc,worldLoc)
     local frame=ESPShared.Frame
     -- Skeleton results own their output; only the immediate raw scratch is shared.
@@ -3405,7 +3411,7 @@ end
 
 -- ESP text setter with FText conversion fallback
 
--- ESP font style made by @Masterpiece2025
+-- ESP font style made by @bstoreid_yk
 local function g_masterahsanyt_ESPSetFont(textWidget, size)
     if not g_masterahsanyt_ESPValid(textWidget) then return end
     g_masterahsanyt_ESPGetTemplateTextStyle()
@@ -3439,7 +3445,7 @@ local function g_masterahsanyt_ESPSetFont(textWidget, size)
     end)
 end
 
--- ESP text color made by @Masterpiece2025
+-- ESP text color made by @bstoreid_yk
 local function g_masterahsanyt_ESPSetTextColor(textWidget, color)
     if not g_masterahsanyt_ESPValid(textWidget) or not color then return end
     local applied = false
@@ -3463,7 +3469,7 @@ local function g_masterahsanyt_ESPSetTextColor(textWidget, color)
     pcall(function() if textWidget.SetRenderOpacity then textWidget:SetRenderOpacity(1.0) end end)
 end
 
--- ESP line widget made by @Masterpiece2025
+-- ESP line widget made by @bstoreid_yk
 local function g_masterahsanyt_ESPCreateLine(color,parent)
     local canvas = parent or g_masterahsanyt_ESPGetCanvas()
     if not g_masterahsanyt_ESPValid(canvas) then return nil end
@@ -3495,7 +3501,7 @@ local function g_masterahsanyt_ESPCreateLine(color,parent)
     return data
 end
 
--- ESP line made by @Masterpiece2025
+-- ESP line made by @bstoreid_yk
 local function g_masterahsanyt_ESPDrawLine(data, x1, y1, x2, y2, thickness)
     if not data or not data.Widget or not data.Slot then return false end
     local dx, dy = x2-x1, y2-y1
@@ -3546,7 +3552,7 @@ local function g_masterahsanyt_ESPDrawLine(data, x1, y1, x2, y2, thickness)
     return true
 end
 
--- ESP widget hide made by @Masterpiece2025
+-- ESP widget hide made by @bstoreid_yk
 local function g_masterahsanyt_ESPHide(data)
     if data and data.Visible~=false and data.Widget then
         local ok=pcall(function() data.Widget:SetWidgetVisibility(UEnums.ESlateVisibility.Collapsed) end)
@@ -4025,7 +4031,7 @@ local function g_masterahsanyt_ESPUpdateSkeleton(key, character, pc, enabled, is
     end
 end
 
--- ESP enemy name widget made by @Masterpiece2025
+-- ESP enemy name widget made by @bstoreid_yk
 local function g_masterahsanyt_ESPCreateNameTag(isBot)
     local canvas = g_masterahsanyt_ESPGetCanvas()
     if not g_masterahsanyt_ESPValid(canvas) then return nil end
@@ -4104,7 +4110,7 @@ local function g_masterahsanyt_ESPCreateNameTag(isBot)
     return ESPWidgetPool.Tag(ESPWidgetPool.V2,"NameV2",canvas,data)
 end
 
--- ESP enemy name and distance made by @Masterpiece2025
+-- ESP enemy name and distance made by @bstoreid_yk
 local function g_masterahsanyt_ESPUpdateNameTag(key, character, headScreen, footScreen, isBot, distance, forceName, forceDistance)
     local showName = _G.g_masterahsanyt_ESPOptions.Name == true
     local showDistance = _G.g_masterahsanyt_ESPOptions.Distance == true
@@ -4241,7 +4247,7 @@ local function g_masterahsanyt_ESPUpdateNameTag(key, character, headScreen, foot
     data.ContainerVisible=true
 end
 
--- ESP enemy and bot counter HUD made by @Masterpiece2025
+-- ESP enemy and bot counter HUD made by @bstoreid_yk
 local function g_masterahsanyt_ESPCreateCounter()
     local canvas = g_masterahsanyt_ESPGetCanvas()
     if not g_masterahsanyt_ESPValid(canvas) then return nil end
@@ -4396,7 +4402,7 @@ local function g_masterahsanyt_ESPCreateCounter()
         Width=displayW,Height=displayH,FontSize=fontSize,FontScale=fontScale,DiamondSize=0,Pieces=pieces,ViewportAnchored=anchored}
 end
 
--- ESP counter position and tracer origin made by @Masterpiece2025
+-- ESP counter position and tracer origin made by @bstoreid_yk
 local function g_masterahsanyt_ESPUpdateCounter(realCount, botCount, pc)
 
     local data = g_masterahsanyt_ShotESP.Counter
@@ -4461,7 +4467,7 @@ local function g_masterahsanyt_ESPUpdateCounter(realCount, botCount, pc)
     return g_masterahsanyt_ShotESP.TracerOrigin
 end
 
--- ESP enemy scan made by @Masterpiece2025
+-- ESP enemy scan made by @bstoreid_yk
 local function g_masterahsanyt_ESPScanEnemies()
     local pc = g_masterahsanyt_ESPGetController()
     local me = g_masterahsanyt_ESPGetLocalCharacter()
@@ -4505,7 +4511,7 @@ local function g_masterahsanyt_ESPScanEnemies()
     return pc, realCount, botCount
 end
 
--- ESP stale widget cleanup made by @Masterpiece2025
+-- ESP stale widget cleanup made by @bstoreid_yk
 local function g_masterahsanyt_ESPPrune(active,alive)
     -- Visual caches follow the displayed set. Counting metadata follows alive.
     -- Move header children into their actor-free parent bundle before pruning
@@ -4539,7 +4545,7 @@ ESPShared.Events.Clearers[#ESPShared.Events.Clearers+1]=function(actor)
     ESPShared.Events.ClearIn(g_masterahsanyt_ShotESP,g_masterahsanyt_ESPPrune,actor)
 end
 
--- ESP main HUD update made by @Masterpiece2025
+-- ESP main HUD update made by @bstoreid_yk
 local function g_masterahsanyt_ESPUpdate()
     local opt = _G.g_masterahsanyt_ESPOptions
     local anyEnabled = opt and (opt.Name or opt.Line or opt.Box or opt.Health or opt.Distance or opt.Skeleton or opt.Counter)
@@ -4822,7 +4828,7 @@ do
         if _G.g_Botmater_ESPOptions[key]==nil then _G.g_Botmater_ESPOptions[key]=false end
     end
     local paths=g_masterahsanyt_ESPSettingsPaths()
-    for i,path in ipairs(paths) do paths[i]=path:gsub("MASTERPIECE_UMG_ESP_settings.lua$","MASTERAHSAN_FEATURES_V3_settings.lua") end
+    for i,path in ipairs(paths) do paths[i]=path:gsub("Pain4459_UMG_ESP_settings.lua$","MASTERAHSAN_FEATURES_V3_settings.lua") end
     if io and io.open then
         for _,path in ipairs(paths) do
             local ok,file=pcall(io.open,path,"r")
@@ -4859,7 +4865,7 @@ do
         end
     end
     if not F.SettingsReadPath and g_masterahsanyt_ESPLoadedSettingsPath then
-        F.SettingsReadPath=g_masterahsanyt_ESPLoadedSettingsPath:gsub("MASTERPIECE_UMG_ESP_settings%.lua$","MASTERAHSAN_FEATURES_V3_settings.lua")
+        F.SettingsReadPath=g_masterahsanyt_ESPLoadedSettingsPath:gsub("Pain4459_UMG_ESP_settings%.lua$","MASTERAHSAN_FEATURES_V3_settings.lua")
     end
     if settings.Aim2Enabled then settings.AimEnabled=false end
     _G.LexusState.CustomTextData.IpadViewFOV=settings.IpadFOV
